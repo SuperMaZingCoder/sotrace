@@ -18,9 +18,6 @@ from sotrace import open_link
 
 open_link("What does the yield keyword do?", tags=["python", "generator"], num_of_results=3)
 ```
-```py
-from sotrace import open_link
-```
 
 ## Roadmap
 - [ ] Documentation
