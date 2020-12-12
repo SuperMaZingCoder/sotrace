@@ -41,8 +41,7 @@ def create_tags(tags: List[Any]) -> str:
     :return: A `;` separated list of tags
     :rtype: str
     '''
-
-    return ';'.join(str(tag for tag in tags))
+    return ';'.join(tags)
 
 
 def get_links(
@@ -73,7 +72,7 @@ def get_links(
     query = create_query(message)
     tags = create_tags(tags)
     link = (
-        f"https://api.stackexchange.com//2.2/similar"
+        f"https://api.stackexchange.com/2.2/similar"
         f"?order=desc&sort=relevance"
         f"&tagged={tags}&title={query}&site=stackoverflow"
     )
@@ -89,6 +88,7 @@ def get_links(
 
 def open_links(
         message: Union[str, BaseException],
+        tags: Optional[List[str]] = None,
         num_of_results: int = 1
         ) -> None:
     '''
@@ -97,9 +97,11 @@ def open_links(
     :param message: A message, either a string or an exception
     to look for on SO
     :type message: Union[str, BaseException]
+    :param tags: A list of tags to restrict the query to, defaults to None
+    :type tags: Optional[List[str]], optional
     :param num_of_results: The number of results to open, defaults to 1
     :type num_of_results: int, optional
     '''
 
-    for result in get_links(message, num_of_results=num_of_results):
+    for result in get_links(message, tags=tags, num_of_results=num_of_results):
         webbrowser.open_new_tab(result)
