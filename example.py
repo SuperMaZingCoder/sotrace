@@ -1,5 +1,4 @@
-from sotrace.get_link import get_link
-from sotrace.open_link import open_link
+from sotrace import open_link
 
 
 dict_1 = {}
