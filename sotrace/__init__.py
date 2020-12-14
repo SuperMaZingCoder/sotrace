@@ -3,4 +3,4 @@
 from .sotrace import get_links, open_links
 
 
-version = "1.1.0"
+version = "1.1.1"
