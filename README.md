@@ -31,7 +31,7 @@ KeyError: 1
 More arguments can be found using `python3 -m sotrace -h`, which gives:
 ```
 ❯ python3 -m sotrace -h
-usage: __main__.py [-h] [--results RESULTS] [--tags TAGS [TAGS ...]] file
+usage: __main__.py [-h] [--results RESULTS] [--tags TAGS [TAGS ...]] [--not-pretty] file
 
 positional arguments:
   file                  File to execute with sotrace.
@@ -40,7 +40,8 @@ optional arguments:
   -h, --help            show this help message and exit
   --results RESULTS     Number of results to open.
   --tags TAGS [TAGS ...]
-                        Preferenced tags.
+                        Preferred tags.
+  --not-pretty          Don't use prettier tracebacks from the rich library. (not recommended)
 ```
 
 ## Roadmap
