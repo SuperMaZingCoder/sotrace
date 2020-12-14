@@ -19,7 +19,10 @@ if not(args.not_pretty):
     console = Console()
 
 try:
-    importlib.import_module(os.path.splitext(args.file)[0])
+    # importlib.import_module(os.path.splitext(args.file)[0])
+    spec = importlib.util.spec_from_file_location(os.path.basename(args.file), os.path.abspath(args.file))
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
 except ModuleNotFoundError as e:
     print(f"Module {args.file} not found, are you sure you spelled the name correctly?")
 except Exception as e:
@@ -28,3 +31,14 @@ except Exception as e:
     else:
         traceback.print_tb(e.__traceback__)
     open_links(e, tags=args.tags, num_of_results=args.results)
+
+# try:
+#     exec(open(os.path.abspath(args.file)).read())
+# except ModuleNotFoundError as e:
+#     print(f"Module {args.file} not found, are you sure you spelled the name correctly?")
+# except Exception as e:
+#     if not(args.not_pretty):
+#         console.print_exception()
+#     else:
+#         traceback.print_tb(e.__traceback__)
+#     open_links(e, tags=args.tags, num_of_results=args.results)
