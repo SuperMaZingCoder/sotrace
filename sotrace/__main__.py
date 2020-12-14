@@ -24,7 +24,7 @@ try:
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
 except ModuleNotFoundError as e:
-    print(f"Module {args.file} not found, are you sure you spelled the name correctly?")
+    print(e)
 except Exception as e:
     if not(args.not_pretty):
         console.print_exception()
