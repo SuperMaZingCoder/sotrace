@@ -21,7 +21,7 @@ open_link("What does the yield keyword do?", tags=["python", "generator"], num_o
 
 `sotrace` can also be run from the command line as a wrapper of sorts.
 ```
-> python3 -m sotrace example2.py
+❯ python3 -m sotrace example2.py
 Traceback (most recent call last):
   File "example2.py", line 2, in <module>
     print(my_dict[1])
