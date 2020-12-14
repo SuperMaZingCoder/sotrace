@@ -25,4 +25,5 @@ setup(
     packages=["sotrace"],
     include_package_data=True,
     install_requires=REQUIREMENTS,
+    python_requires=">=3.5.0"
 )
